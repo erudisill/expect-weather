@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <title>Expect Weather</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Expect Weather</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Temp</label>
+				<div class="col-sm-6">
+					<p  id="temp" class="form-control-static">N/A</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Humidity</label>
+				<div class="col-sm-6">
+					<p id="humidity" class="form-control-static">N/A</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Wind</label>
+				<div class="col-sm-6">
+					<p id="wind" class="form-control-static">N/A</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Pressure</label>
+				<div class="col-sm-6">
+					<p id="pressure" class="form-control-static">N/A</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Weather</label>
+				<div class="col-sm-6">
+					<p id="weather" class="form-control-static">N/A</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Updated</label>
+				<div class="col-sm-6">
+					<p id="timestamp" class="form-control-static">N/A</p>
+				</div>
+			</div>
+		</form>
+	
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    <script>
+    
+    	$(document).ready(function() {
+    		$.get("?action=get", function(data) {
+    			console.log(data);
+    			$("#temp").html(data.temp);
+    			$("#humidity").html(data.humidity);
+    			$("#wind").html(data.wind);
+    			$("#pressure").html(data.pressure);
+    			$("#weather").html(data.weather);
+    			$("#timestamp").html(new Date(data.timestamp))
+    		});
+    	});
+    
+    </script>
+  </body>
+</html>
+
+
