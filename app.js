@@ -46,6 +46,6 @@ http.createServer(function(req, res) {
     	var fileStream = fs.createReadStream('./index.html');
     	fileStream.pipe(res);
     }
-}).listen(1337);
+}).listen(1338);
 
-console.log('Server running on port 1337');
+console.log('Server running on port 1338');
