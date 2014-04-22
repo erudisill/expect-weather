@@ -138,6 +138,6 @@ set queryString [http::formatQuery 	"action" "weather"		\
 									"pressure" "$pressure"	\
 									"weather" "$weather"]
 
-http::geturl http://localhost:1337/?$queryString
+http::geturl http://appserver05.cphandheld.com:1338/?$queryString
 
 
